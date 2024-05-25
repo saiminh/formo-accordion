@@ -29,7 +29,6 @@
 :where(body .is-layout-flow) > :first-child .fo-accordion:first-child {
   margin-block-start: 1em;
 }
-
 .fo-accordion summary {
   padding: 1.5em 4em 1.5em 1.5em;
   background-color: #FFF;
@@ -42,7 +41,6 @@
   &::-webkit-details-marker{
     display: none; //Other browsers than FF get rid of arrow this way
   }
-
   &:after, 
   &:before {
     content: "";
@@ -70,7 +68,6 @@
     transition: transform .3s linear;
   }
 }
-  
 .fo-accordion .content {
   position: relative;
   z-index: 2;
@@ -81,7 +78,6 @@
   & p {
     font-size: var(--wp--preset--font-size--small);
   }
-  
   & :first-child {
     margin-top: 0;
   }
@@ -126,24 +122,20 @@
 [class*="wp-container-"] > .fo-accordion:not(:first-child) {
   margin: 1em auto;
 }
-
 .has-formo-darktone-background-color .fo-accordion {
   & summary:before {
     background-color: var(--wp--preset--color--formo-yellow);
   }
 }
-
 .has-formo-blue-background-color .fo-accordion {
   color: var(--wp--preset--color--formo-blue);
   
   &:after { 
     background-color: var(--wp--preset--color--formo-grey);
   }
-
   & summary {
     background-color: var(--wp--preset--color--formo-grey);
   }
-
   & summary:before, & summary:after {
     background-color: var(--wp--preset--color--formo-blue);
     background-image: linear-gradient(var(--wp--preset--color--formo-grey) 0%, var(--wp--preset--color--formo-grey) 100%);
