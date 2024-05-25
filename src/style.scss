@@ -1,0 +1,154 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+
+.fo-accordion {
+  margin: 1em auto!important;
+  padding: 0;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  color: var(--wp--preset--color--formo-darktone);
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 30px;
+    bottom: 0;
+    width: 100%;
+    background-color: #FFF;
+    transform-origin: 0% 0%;
+    border-radius: 30px;
+  }
+}
+:where(body .is-layout-flow) > :first-child .fo-accordion:first-child {
+  margin-block-start: 1em;
+}
+
+.fo-accordion summary {
+  padding: 1.5em 4em 1.5em 1.5em;
+  background-color: #FFF;
+  border-radius: 15px;
+  position: relative;
+  z-index: 2;
+  list-style: none; //FF fix to get rid of arrow
+
+  &::marker,
+  &::-webkit-details-marker{
+    display: none; //Other browsers than FF get rid of arrow this way
+  }
+
+  &:after, 
+  &:before {
+    content: "";
+    position: absolute;
+    right: 1.5em;
+    top: calc( 50% - 16px)!important;
+    background-color: var(--wp--preset--color--formo-grey, rgb(247, 247, 247));
+    background-image: linear-gradient(var(--wp--preset--color--formo-darktone) 0%, var(--wp--preset--color--formo-darktone) 100%);
+    background-size: 13px 2px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    display: block;
+    text-align: center;
+    line-height: 1.35;
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    transition: transform .3s linear;
+    animation: none;
+  }
+  &:after {
+    background-color: transparent;
+    transform: rotate(90deg);
+    transition: transform .3s linear;
+  }
+}
+  
+.fo-accordion .content {
+  position: relative;
+  z-index: 2;
+  padding: 0 4em 1.5em 1.5em;
+  transform-origin: 0 0;
+  animation: none;
+
+  & p {
+    font-size: var(--wp--preset--font-size--small);
+  }
+  
+  & :first-child {
+    margin-top: 0;
+  }
+  & :last-child {
+    margin-bottom: 0;
+  }
+  & a:not(.wp-block-button__link) {
+    text-decoration: underline;
+    color: var(--wp--preset--color--formo-blue);
+  }
+}
+
+.fo-accordion[open] {
+  & .content {
+    animation: content-slide .5s cubic-bezier(0.080, 1.635, 0.430, 0.840) forwards;
+  }
+  & summary:before {
+    background-color: var(--wp--preset--color--formo-yellow, rgb(255, 213, 0));
+  }
+  & summary:after {
+    transform: rotate(0deg);
+  }
+}
+@keyframes bg-slide {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+@keyframes content-slide {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+//override the gap 0 issue
+[class*="wp-container-"] > .fo-accordion:not(:first-child) {
+  margin: 1em auto;
+}
+
+.has-formo-darktone-background-color .fo-accordion {
+  & summary:before {
+    background-color: var(--wp--preset--color--formo-yellow);
+  }
+}
+
+.has-formo-blue-background-color .fo-accordion {
+  color: var(--wp--preset--color--formo-blue);
+  
+  &:after { 
+    background-color: var(--wp--preset--color--formo-grey);
+  }
+
+  & summary {
+    background-color: var(--wp--preset--color--formo-grey);
+  }
+
+  & summary:before, & summary:after {
+    background-color: var(--wp--preset--color--formo-blue);
+    background-image: linear-gradient(var(--wp--preset--color--formo-grey) 0%, var(--wp--preset--color--formo-grey) 100%);
+  }
+  & summary:after {
+    background-color: transparent;
+  }
+}
