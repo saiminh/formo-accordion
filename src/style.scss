@@ -7,7 +7,7 @@
 
 
 .fo-accordion {
-  margin: 1em auto!important;
+  margin: 1em auto 0 auto!important;
   padding: 0;
   position: relative;
   border-radius: 15px;
@@ -27,7 +27,7 @@
   }
 }
 :where(body .is-layout-flow) > :first-child .fo-accordion:first-child {
-  margin-block-start: 1em;
+  margin-top: 0!important;
 }
 .fo-accordion summary {
   padding: 1.5em 4em 1.5em 1.5em;
