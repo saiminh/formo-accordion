@@ -20,7 +20,7 @@ export default function Edit( { attributes, setAttributes } ) {
         tagName="summary"
         value={ attributes.header }
         onChange={ onChangeHeader }
-        allowedFormats={ [ 'core/bold', 'core/italic' ] }
+        allowedFormats={ [ 'core/bold', 'core/italic', 'advanced/alternative' ] }
         placeholder={ __( 'FAQ Question?', 'formo-accordion-summary' ) }
       />
       <div className='content'>
